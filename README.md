@@ -1,1 +1,1 @@
-# Clash-of-Clans-api
+# Clash of Clans API
