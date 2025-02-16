@@ -1,27 +1,13 @@
 import Navigation from '@/components/Navigation'
+import Search from '@/components/Search'
 
-const apiKey = process.env.NEXT_PUBLIC_API_KEY
-
-const test = async () => {
-    const response = await fetch(
-        'https://api.clashofclans.com/v1/players/%23RGC9YYGQ',
-        {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${apiKey}`,
-            },
-        }
-    )
-
-    const result = await response.json()
-}
-
-export default function Home() {
-    test()
+const Home = () => {
     return (
-        <div className="w-full max-w-screen-2xl uppercase">
+        <div className="flex flex-col w-full max-w-screen-2xl">
             <Navigation />
+            <Search />
         </div>
     )
 }
+
+export default Home
