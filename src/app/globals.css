@@ -21,10 +21,17 @@
 *:disabled {
     cursor: not-allowed;
     opacity: 0.8;
-    @apply text-zinc-700/80;
-    @apply dark:text-zinc-50/80;
+    @apply text-zinc-700/80 dark:text-zinc-50/80;
+}
+
+*:not(input):focus-visible {
+    @apply outline outline-2 outline-zinc-700 dark:outline-zinc-200;
 }
 
 input {
     @apply text-zinc-800;
+}
+
+button:not(:disabled) {
+    @apply hover:bg-zinc-200 hover:dark:bg-zinc-900;
 }
