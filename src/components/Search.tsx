@@ -107,7 +107,7 @@ const Search = () => {
                 type="search"
                 onChange={(e) => handleChange(e)}
                 onKeyDown={(e) => handleKeyDown(e)}
-                className="text-sm sm:text-base m-auto max-w-96 outline outline-2 outline-zinc-700 dark:outline-zinc-900 focus-visible:outline-4 px-2 py-1 my-1 rounded-md w-full"
+                className="text-sm sm:text-base m-auto max-w-96 outline outline-2 outline-zinc-700 dark:outline-zinc-900 focus-visible:outline-4 focus-visible:shadow-lg px-2 py-1 my-1 rounded-md w-full"
                 placeholder="#RGC9YYGQ"
                 autoCapitalize="true"
                 autoComplete="on"
