@@ -34,7 +34,7 @@ const ThemeToggle = () => {
     return (
         <button
             onClick={toggleTheme}
-            className="flex items-center p-2 h-fit text-xs sm:text-sm bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 hover:dark:bg-zinc-900 shadow-md rounded-md"
+            className="flex items-center p-2 h-fit text-xs sm:text-sm bg-zinc-100 dark:bg-zinc-800 shadow-md rounded-md"
             title={`Switch to ${theme === 'dark' ? 'Light' : 'Dark'} mode.`}
         >
             {theme === 'dark' ? '🌙 Dark' : '☀️ Light'}
