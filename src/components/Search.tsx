@@ -12,6 +12,7 @@ const Search = () => {
         )
     }
     const [player, setPlayer] = contextPlayer
+    const [error, setError] = useState<string>('')
     const [playerID, setPlayerID] = useState<string>('')
     const [isDisabled, setIsDisabled] = useState<boolean>(false)
 
@@ -33,6 +34,7 @@ const Search = () => {
     const fetchPlayer = async (id: string) => {
         try {
             setIsDisabled(true)
+            setError('')
             setPlayer({
                 ...player,
                 name: '',
@@ -75,6 +77,7 @@ const Search = () => {
             })
         } catch (error) {
             console.error(error)
+            setError(`Unable to fetch the player with ID ${playerID}!`)
         } finally {
             setIsDisabled(false)
         }
@@ -121,6 +124,11 @@ const Search = () => {
             >
                 Search
             </button>
+            {error && (
+                <div className="flex text-red-700 underline underline-offset-2 decoration-red-700 dark:text-zinc-100 dark:decoration-zinc-100 justify-center pt-4">
+                    {error}
+                </div>
+            )}
         </>
     )
 }
