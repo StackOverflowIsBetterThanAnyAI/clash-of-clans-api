@@ -31,9 +31,9 @@ const Main = () => {
     }, [])
 
     return (
-        <main className="flex justify-center items-center flex-wrap gap-3 bg-zinc-300 dark:bg-zinc-600 shadow-lg mt-2 px-2 py-4 w-full">
+        <>
             {player.name && (
-                <>
+                <main className="flex justify-center items-center flex-wrap gap-3 bg-zinc-300 dark:bg-zinc-600 shadow-lg mt-2 px-2 py-4 w-full">
                     <Image
                         src={king}
                         alt=""
@@ -89,9 +89,9 @@ const Main = () => {
                         height={256}
                         className="scale-x-[-1] drop-shadow-lg h-48 sm:h-64 object-contain"
                     />
-                </>
+                </main>
             )}
-        </main>
+        </>
     )
 }
 
