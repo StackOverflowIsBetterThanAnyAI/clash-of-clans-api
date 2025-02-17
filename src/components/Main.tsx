@@ -47,13 +47,13 @@ const Main = () => {
                         <div className="flex flex-wrap text-sm sm:text-base items-center justify-center">
                             <div className="flex items-center">
                                 Player Level{' '}
-                                <p className="bg-blue-500 text-zinc-100 outline outline-2 outline-zinc-100 m-2 p-1 rounded-md">
+                                <p className="bg-blue-600 text-zinc-50 outline outline-2 outline-zinc-400 dark:outline-zinc-100 m-2 p-1 rounded-md">
                                     {player.expLevel}
                                 </p>
                             </div>{' '}
                             <div className="flex items-center">
                                 Townhall Level{' '}
-                                <p className="bg-red-600 text-zinc-100 outline outline-2 outline-zinc-100 m-2 p-1 rounded-md">
+                                <p className="bg-red-600 text-zinc-50 outline outline-2 outline-zinc-400 dark:outline-zinc-100 m-2 p-1 rounded-md">
                                     {player.townHallLevel}
                                 </p>
                             </div>
@@ -61,13 +61,13 @@ const Main = () => {
                         <div className="flex flex-wrap text-sm sm:text-base items-center justify-center">
                             <div className="flex items-center">
                                 Trophies{' '}
-                                <p className="bg-purple-600 text-zinc-100 outline outline-2 outline-zinc-100 m-2 p-1 rounded-md">
+                                <p className="bg-purple-700 text-zinc-50 outline outline-2 outline-zinc-400 dark:outline-zinc-100 m-2 p-1 rounded-md">
                                     {player.trophies}
                                 </p>
                             </div>{' '}
                             <div className="flex items-center justify-center flex-wrap">
                                 Builder Base Trophies{' '}
-                                <p className="bg-green-600 text-zinc-100 outline outline-2 outline-zinc-100 m-2 p-1 rounded-md">
+                                <p className="bg-green-700 text-zinc-50 outline outline-2 outline-zinc-400 dark:outline-zinc-100 m-2 p-1 rounded-md">
                                     {player.builderBaseTrophies}
                                 </p>
                             </div>
