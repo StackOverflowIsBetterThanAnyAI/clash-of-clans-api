@@ -8,9 +8,10 @@ const Navigation = () => {
             <a
                 href="/"
                 className="flex items-center gap-2 uppercase pr-2 py-1 hover:bg-zinc-100 hover:dark:bg-zinc-600 hover:shadow-md rounded-md"
+                title="Reload Page."
             >
                 <Image
-                    alt="Back to the Homepage."
+                    alt="Reload Page."
                     src={logo}
                     className="object-contain"
                     height={48}
