@@ -17,7 +17,12 @@ const Navigation = () => {
                     height={48}
                     priority
                 />
-                <h1 className="text-lg sm:text-xl pt-2">Clash Stats</h1>
+                <h1
+                    className="text-lg sm:text-xl pt-2"
+                    data-testid="navigation-h1"
+                >
+                    Clash Stats
+                </h1>
             </a>
             <ThemeToggle />
         </nav>

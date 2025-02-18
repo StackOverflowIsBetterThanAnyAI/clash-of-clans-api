@@ -116,16 +116,21 @@ const Search = () => {
                 autoComplete="on"
                 maxLength={9}
                 value={playerID}
+                data-testid="search-input"
             />
             <button
                 onClick={() => handleSearch(playerID)}
                 className="mx-auto text-xs sm:text-sm bg-zinc-100 shadow-md dark:bg-zinc-800 rounded-md px-2 py-1 mt-1 w-fit"
                 disabled={isDisabled}
+                data-testid="search-button"
             >
                 Search
             </button>
             {error && (
-                <div className="flex text-red-700 underline underline-offset-2 decoration-red-700 dark:text-zinc-100 dark:decoration-zinc-100 justify-center pt-4">
+                <div
+                    className="flex text-red-700 underline underline-offset-2 decoration-red-700 dark:text-zinc-100 dark:decoration-zinc-100 justify-center pt-4"
+                    data-testid="search-error"
+                >
                     {error}
                 </div>
             )}
