@@ -1,6 +1,6 @@
 'use client'
 
-import { ContextPlayer } from '@/app/page'
+import { ContextPlayer } from '@/context/PlayerContext'
 import { setItemInStorage } from '@/app/utils/setItemInStorage'
 import { useContext, useEffect, useState } from 'react'
 

@@ -3,18 +3,9 @@
 import Main from '@/components/Main'
 import Navigation from '@/components/Navigation'
 import Search from '@/components/Search'
+import { ContextPlayer } from '@/context/PlayerContext'
 import { PlayerProps } from '@/types/PlayerProps'
-import {
-    createContext,
-    Dispatch,
-    SetStateAction,
-    useEffect,
-    useState,
-} from 'react'
-
-export const ContextPlayer = createContext<
-    [PlayerProps, Dispatch<SetStateAction<PlayerProps>>] | undefined
->(undefined)
+import { useEffect, useState } from 'react'
 
 const Home = () => {
     const [player, setPlayer] = useState<PlayerProps>({
