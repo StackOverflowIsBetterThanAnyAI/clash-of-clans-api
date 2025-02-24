@@ -117,6 +117,7 @@ const Search = () => {
                 maxLength={9}
                 value={playerID}
                 data-testid="search-input"
+                autoFocus
             />
             <button
                 onClick={() => handleSearch(playerID)}
