@@ -33,7 +33,10 @@ const Main = () => {
     return (
         <>
             {player.name && (
-                <main className="flex justify-center items-center flex-wrap gap-3 bg-zinc-300 dark:bg-zinc-600 shadow-lg mt-2 px-2 py-4 w-full">
+                <main
+                    className="flex justify-center items-center flex-wrap gap-3 bg-zinc-300 dark:bg-zinc-600 shadow-lg mt-2 px-2 py-4 w-full"
+                    data-testid="main-player"
+                >
                     <Image
                         src={king}
                         alt=""
