@@ -4,6 +4,10 @@ context('Search', () => {
     beforeEach(() => {
         cy.visit('/')
         cy.clearLocalStorage()
+
+        cy.intercept('GET', '/api/player', (req) => {
+            req.headers['Authorization'] = `Bearer ${Cypress.env('API_TOKEN')}`
+        }).as('searchRequest')
     })
 
     afterEach(() => {
@@ -13,6 +17,7 @@ context('Search', () => {
     it('should display user data', () => {
         cy.get('[data-testid="search-input"]').type('#rgc9yygq')
         cy.get('[data-testid="search-button"]').click()
+        cy.wait('@searchRequest').its('response.statusCode').should('eq', 200)
         cy.get('[data-testid="main-player"]').should(
             'contain.text',
             '0 SKLZ,JUS LUCK'
@@ -22,6 +27,7 @@ context('Search', () => {
     it('should display error instead of user data', () => {
         cy.get('[data-testid="search-input"]').type('#12345678')
         cy.get('[data-testid="search-button"]').click()
+        cy.wait('@searchRequest')
         cy.get('[data-testid="search-error"]').should(
             'have.text',
             'Unable to fetch the player with ID #12345678!'
