@@ -42,6 +42,7 @@ const Main = () => {
                         alt=""
                         height={256}
                         className="drop-shadow-lg hidden lg:block"
+                        loading="lazy"
                     />
                     <div className="flex flex-col">
                         <p className="flex justify-center text-xl sm:text-2xl pb-2">
@@ -82,6 +83,7 @@ const Main = () => {
                                 alt={player.clanName}
                                 height={48}
                                 width={48}
+                                loading="lazy"
                             />
                             {player.clanTag}
                         </p>
@@ -91,6 +93,7 @@ const Main = () => {
                         alt=""
                         height={256}
                         className="scale-x-[-1] drop-shadow-lg h-48 sm:h-64 object-contain"
+                        loading="lazy"
                     />
                 </main>
             )}
