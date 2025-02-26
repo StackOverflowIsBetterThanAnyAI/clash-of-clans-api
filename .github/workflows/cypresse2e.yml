@@ -22,9 +22,6 @@ jobs:
                   browser: chrome
                   env: API_KEY=${{ secrets.API_KEY }}
 
-            - name: Print Cypress Logs
-              run: cat cypress/logs/*.log || true
-
             - name: Upload Cypress Artifacts
               if: failure()
               uses: actions/upload-artifact@v4
