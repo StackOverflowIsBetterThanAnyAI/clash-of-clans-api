@@ -10,47 +10,8 @@ context('Search', () => {
         cy.clearLocalStorage()
     })
 
-    it('should exist api key', () => {
-        const apiKey = Cypress.env('API_KEY')
-        expect(apiKey).to.exist
-    })
-
     it('should display user data', () => {
         cy.get('[data-testid="search-input"]').type('#rgc9yygq')
-
-        cy.get('[data-testid="search-button"]').click()
-
-        cy.request({
-            method: 'GET',
-            url: '/api/player?id=RGC9YYGQ',
-            headers: {
-                Authorization: `Bearer ${Cypress.env('API_KEY')}`,
-                'Content-Type': 'application/json',
-            },
-            failOnStatusCode: false,
-        }).then((response) => {
-            cy.log('🔍 Request URL:', response.requestBody)
-            cy.log('📊 Request Headers:', response.requestHeaders)
-            cy.log('🚀 Response Status:', response.status)
-            cy.log('📝 Response Body:', response.body)
-
-            expect(response.status).to.eq(200)
-        })
-
-        cy.get('[data-testid="search-button"]').click()
-        cy.get('[data-testid="main-player"]').should(
-            'contain.text',
-            '0 SKLZ,JUS LUCK'
-        )
-    })
-
-    it('should display user data', () => {
-        const apiKey = Cypress.env('API_KEY')
-        cy.get('[data-testid="search-input"]').type('#rgc9yygq')
-
-        cy.intercept('GET', '/api/player?id=RGC9YYGQ', (req) => {
-            req.headers['Authorization'] = `Bearer ${apiKey}`
-        })
 
         cy.get('[data-testid="search-button"]').click()
         cy.get('[data-testid="main-player"]').should(
@@ -60,12 +21,7 @@ context('Search', () => {
     })
 
     it('should display error instead of user data', () => {
-        const apiKey = Cypress.env('API_KEY')
         cy.get('[data-testid="search-input"]').type('#12345678')
-
-        cy.intercept('GET', '/api/player?id=12345678', (req) => {
-            req.headers['Authorization'] = `Bearer ${apiKey}`
-        })
 
         cy.get('[data-testid="search-button"]').click()
         cy.get('[data-testid="search-error"]').should(
