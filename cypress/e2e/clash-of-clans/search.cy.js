@@ -24,7 +24,8 @@ context('Search', () => {
             method: 'GET',
             url: '/api/player?id=RGC9YYGQ',
             headers: {
-                Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6ImUwZWFmOTI0LWExYmEtNDgzOS1hNjJkLWY5NzkxMzFlNWM0YiIsImlhdCI6MTczOTY1MzAzNiwic3ViIjoiZGV2ZWxvcGVyL2Y0MWI0NjQ3LTdmOTAtYjRlZC1jNmQ4LTUwNDlhMmQ5NzgyMSIsInNjb3BlcyI6WyJjbGFzaCJdLCJsaW1pdHMiOlt7InRpZXIiOiJkZXZlbG9wZXIvc2lsdmVyIiwidHlwZSI6InRocm90dGxpbmcifSx7ImNpZHJzIjpbIjk1LjkwLjE5OS4xOTkiXSwidHlwZSI6ImNsaWVudCJ9XX0.j-JFqGMdjxFA-5eXrw0mSvqsDUa_si3LvCEwbghCc7cVInO6oqBjghqseLkGg6zjb09pY-X3dw944xGHwkvz4Q`,
+                Authorization: `Bearer ${Cypress.env('API_KEY')}`,
+                'Content-Type': 'application/json',
             },
             failOnStatusCode: false,
         }).then((response) => {
