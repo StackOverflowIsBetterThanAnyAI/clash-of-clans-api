@@ -2,5 +2,6 @@
 /cypress/screenshots
 /node_modules
 /.next
+cypress.env.json
 next-env.d.ts
 .env.local
