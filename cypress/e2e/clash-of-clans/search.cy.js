@@ -34,7 +34,7 @@ context('Search', () => {
         const apiKey = Cypress.env('API_KEY')
         cy.get('[data-testid="search-input"]').type('#12345678')
 
-        cy.intercept('POST', '/api/player?id=RGC9YYGQ', (req) => {
+        cy.intercept('GET', '/api/player?id=12345678', (req) => {
             req.headers['Authorization'] = `Bearer ${apiKey}`
         })
 
