@@ -17,6 +17,25 @@ context('Search', () => {
 
     it('should display user data', () => {
         const apiKey = Cypress.env('API_KEY')
+
+        cy.intercept('GET', '/api/player*', (req) => {
+            req.headers['Authorization'] = `Bearer ${apiKey}`
+            cy.log('Request Headers:', JSON.stringify(req.headers))
+        }).as('getPlayer')
+
+        cy.get('[data-testid="search-input"]').type('#rgc9yygq')
+        cy.get('[data-testid="search-button"]').click()
+
+        cy.wait('@getPlayer').then((interception) => {
+            cy.log('Request:', interception.request)
+            cy.log('Response:', interception.response)
+
+            expect(interception.response.statusCode).to.eq(200)
+        })
+    })
+
+    it('should display user data', () => {
+        const apiKey = Cypress.env('API_KEY')
         cy.get('[data-testid="search-input"]').type('#rgc9yygq')
 
         cy.intercept('GET', '/api/player?id=RGC9YYGQ', (req) => {
