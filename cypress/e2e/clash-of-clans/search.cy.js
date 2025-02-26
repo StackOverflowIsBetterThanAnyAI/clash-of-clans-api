@@ -13,6 +13,7 @@ context('Search', () => {
     it('should exist api key', () => {
         const apiKey = Cypress.env('API_KEY')
         expect(apiKey).to.exist
+        cy.log(apiKey)
     })
 
     it('should display user data', () => {
