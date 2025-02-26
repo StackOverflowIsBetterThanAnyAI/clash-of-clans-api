@@ -20,8 +20,7 @@ jobs:
                   start: npm run dev
                   wait-on: 'http://localhost:3000'
                   browser: chrome
-              env:
-                  CYPRESS_API_KEY: ${{ secrets.API_KEY }}
+                  env: API_KEY=${{ secrets.API_KEY }}
 
             - name: Upload Cypress Artifacts
               if: failure()
