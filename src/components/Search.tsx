@@ -49,32 +49,33 @@ const Search = () => {
 
             const response = await fetch(`/api/player?id=${id.substring(1)}`)
             if (response.status !== 200) {
-                throw new Error('Unable to fetch the current user!')
-            }
-            const data = await response.json()
+                setError(`Unable to fetch the player with ID ${playerID}!`)
+            } else {
+                const data = await response.json()
 
-            setItemInStorage({
-                id: playerID,
-                name: data.name,
-                expLevel: data.expLevel,
-                townHallLevel: data.townHallLevel,
-                clanTag: data.clan.tag,
-                clanName: data.clan.name,
-                clanBadgeUrl: data.clan.badgeUrls.medium,
-                trophies: data.trophies,
-                builderBaseTrophies: data.builderBaseTrophies,
-            })
-            setPlayer({
-                ...player,
-                name: data.name,
-                expLevel: data.expLevel,
-                townHallLevel: data.townHallLevel,
-                clanTag: data.clan.tag,
-                clanName: data.clan.name,
-                clanBadgeUrl: data.clan.badgeUrls.medium,
-                trophies: data.trophies,
-                builderBaseTrophies: data.builderBaseTrophies,
-            })
+                setItemInStorage({
+                    id: playerID,
+                    name: data.name,
+                    expLevel: data.expLevel,
+                    townHallLevel: data.townHallLevel,
+                    clanTag: data.clan.tag,
+                    clanName: data.clan.name,
+                    clanBadgeUrl: data.clan.badgeUrls.medium,
+                    trophies: data.trophies,
+                    builderBaseTrophies: data.builderBaseTrophies,
+                })
+                setPlayer({
+                    ...player,
+                    name: data.name,
+                    expLevel: data.expLevel,
+                    townHallLevel: data.townHallLevel,
+                    clanTag: data.clan.tag,
+                    clanName: data.clan.name,
+                    clanBadgeUrl: data.clan.badgeUrls.medium,
+                    trophies: data.trophies,
+                    builderBaseTrophies: data.builderBaseTrophies,
+                })
+            }
         } catch (error) {
             console.error(error)
             setError(`Unable to fetch the player with ID ${playerID}!`)
