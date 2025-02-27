@@ -69,4 +69,16 @@ context('Search', () => {
             'Unable to fetch the player with ID #12345678!'
         )
     })
+
+    it('should disable search button for falsy player ids', () => {
+        cy.get('[data-testid="search-input"]').type('12345678')
+        cy.get('[data-testid="search-button"]').should('have.attr', 'disabled')
+
+        cy.get('[data-testid="search-input"]').clear()
+        cy.get('[data-testid="search-input"]').type('#1234567')
+        cy.get('[data-testid="search-button"]').should('have.attr', 'disabled')
+
+        cy.get('[data-testid="search-input"]').clear()
+        cy.get('[data-testid="search-button"]').should('have.attr', 'disabled')
+    })
 })
