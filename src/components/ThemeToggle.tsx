@@ -1,8 +1,8 @@
 'use client'
 
+import { useState } from 'react'
 import { useToggleTheme } from '@/hooks/useToggleTheme'
 import { setToggleTheme } from '@/utils/setToggleTheme'
-import { useState } from 'react'
 
 const ThemeToggle = () => {
     const [theme, setTheme] = useState<'light' | 'dark'>('light')

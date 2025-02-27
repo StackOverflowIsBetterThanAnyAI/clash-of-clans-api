@@ -1,7 +1,7 @@
 'use client'
 
-import { ContextPlayer } from '@/context/PlayerContext'
 import { useContext, useEffect } from 'react'
+import { ContextPlayer } from '@/context/PlayerContext'
 import Image from 'next/image'
 import barbarian from '@/assets/barbarian.png'
 import king from '@/assets/king.png'

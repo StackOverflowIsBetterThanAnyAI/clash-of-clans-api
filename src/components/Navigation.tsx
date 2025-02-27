@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import logo from '@/assets/logo.png'
-import ThemeToggle from './ThemeToggle'
+import ThemeToggle from '@/components/ThemeToggle'
 
 const Navigation = () => {
     return (
