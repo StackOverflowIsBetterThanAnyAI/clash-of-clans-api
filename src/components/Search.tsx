@@ -1,7 +1,7 @@
 'use client'
 
 import { ContextPlayer } from '@/context/PlayerContext'
-import { setItemInStorage } from '@/app/utils/setItemInStorage'
+import { setItemInStorage } from '@/utils/setItemInStorage'
 import { useContext, useEffect, useState } from 'react'
 
 const Search = () => {
