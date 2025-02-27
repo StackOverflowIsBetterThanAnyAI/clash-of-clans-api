@@ -1,7 +1,8 @@
 'use client'
 
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import { ContextPlayer } from '@/context/PlayerContext'
+import { useSetPlayer } from '@/hooks/useSetPlayer'
 import Image from 'next/image'
 import barbarian from '@/assets/barbarian.png'
 import king from '@/assets/king.png'
@@ -15,20 +16,7 @@ const Main = () => {
     }
     const [player, setPlayer] = contextPlayer
 
-    useEffect(() => {
-        const storage = JSON.parse(sessionStorage.getItem('clash-of-clans')!)
-        setPlayer({
-            ...player,
-            name: storage?.name,
-            expLevel: storage?.expLevel,
-            townHallLevel: storage?.townHallLevel,
-            clanTag: storage?.clanTag,
-            clanName: storage?.clanName,
-            clanBadgeUrl: storage?.clanBadgeUrl,
-            trophies: storage?.trophies,
-            builderBaseTrophies: storage?.builderBaseTrophies,
-        })
-    }, [])
+    useSetPlayer([player, setPlayer])
 
     return (
         <>
