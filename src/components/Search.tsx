@@ -1,8 +1,9 @@
 'use client'
 
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useState } from 'react'
 import { ContextPlayer } from '@/context/PlayerContext'
 import { setItemInStorage } from '@/utils/setItemInStorage'
+import { useSearchPlayer } from '@/hooks/useSearchPlayer'
 
 const Search = () => {
     const contextPlayer = useContext(ContextPlayer)
@@ -16,20 +17,7 @@ const Search = () => {
     const [playerID, setPlayerID] = useState<string>('')
     const [isDisabled, setIsDisabled] = useState<boolean>(false)
 
-    useEffect(() => {
-        if (typeof window !== 'undefined') {
-            const storedData = sessionStorage.getItem('clash-of-clans')
-            if (storedData) {
-                try {
-                    const parsedData = JSON.parse(storedData)
-                    setPlayerID(parsedData.id || '')
-                    setIsDisabled(!parsedData.id)
-                } catch (error) {
-                    console.error(error)
-                }
-            }
-        }
-    }, [])
+    useSearchPlayer(setPlayerID, setIsDisabled)
 
     const fetchPlayer = async (id: string) => {
         try {
