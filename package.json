@@ -23,7 +23,7 @@
         "@types/node": "^22",
         "@types/react": "^19",
         "@types/react-dom": "^19",
-        "cypress": "^14.2.1",
+        "cypress": "^14.3.0",
         "jest": "^29.7.0",
         "jest-environment-jsdom": "^29.7.0",
         "postcss": "^8",
