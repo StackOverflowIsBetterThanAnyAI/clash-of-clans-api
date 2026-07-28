@@ -14,7 +14,7 @@ const Navigation = () => {
                 title="Reload Page."
             >
                 <Image
-                    alt="Reload Page."
+                    alt=""
                     src={logo}
                     className="object-contain"
                     height={48}
