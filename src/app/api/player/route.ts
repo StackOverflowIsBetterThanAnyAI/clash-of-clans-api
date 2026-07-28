@@ -4,7 +4,7 @@ export async function GET(req: Request) {
     const { searchParams } = new URL(req.url)
     const id = searchParams.get('id')
 
-    const apiKey = process.env.NEXT_PUBLIC_API_KEY
+    const apiKey = process.env.COC_API_KEY
     const response = await fetch(
         `https://api.clashofclans.com/v1/players/%23${id}`,
         {
