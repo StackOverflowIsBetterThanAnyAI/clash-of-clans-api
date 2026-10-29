@@ -1,10 +1,11 @@
 /**
  * @jest-environment node
  */
+import { beforeEach, describe, expect, it, jest } from '@jest/globals'
 import { GET } from '../app/api/player/route'
 
 describe('GET /api/player', () => {
-    const fetchMock = jest.fn()
+    const fetchMock = jest.fn<typeof fetch>()
 
     beforeEach(() => {
         global.fetch = fetchMock

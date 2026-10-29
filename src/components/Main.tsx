@@ -18,6 +18,29 @@ const Main = () => {
 
     useSetPlayer([player, setPlayer])
 
+    const stats = [
+        {
+            label: 'Player Level',
+            value: player.expLevel,
+            accent: 'bg-blue-500',
+        },
+        {
+            label: 'Townhall Level',
+            value: player.townHallLevel,
+            accent: 'bg-red-500',
+        },
+        {
+            label: 'Trophies',
+            value: player.trophies,
+            accent: 'bg-purple-500',
+        },
+        {
+            label: 'Builder Base Trophies',
+            value: player.builderBaseTrophies,
+            accent: 'bg-green-500',
+        },
+    ]
+
     return (
         <>
             {player.name && (
@@ -32,40 +55,28 @@ const Main = () => {
                         className="drop-shadow-lg hidden lg:block"
                         loading="lazy"
                     />
-                    <div className="flex flex-col">
-                        <p className="flex justify-center text-xl sm:text-2xl pb-2">
+                    <div className="flex flex-col gap-4 w-full max-w-2xl">
+                        <h2 className="text-center text-xl sm:text-2xl">
                             {player.name}
-                        </p>
-                        <div className="flex flex-wrap text-sm sm:text-base items-center justify-center">
-                            <div className="flex items-center">
-                                Player Level{' '}
-                                <p className="bg-blue-600 text-zinc-50 outline outline-2 outline-zinc-400 dark:outline-zinc-100 m-2 p-1 rounded-md">
-                                    {player.expLevel}
-                                </p>
-                            </div>{' '}
-                            <div className="flex items-center">
-                                Townhall Level{' '}
-                                <p className="bg-red-600 text-zinc-50 outline outline-2 outline-zinc-400 dark:outline-zinc-100 m-2 p-1 rounded-md">
-                                    {player.townHallLevel}
-                                </p>
-                            </div>
-                        </div>
-                        <div className="flex flex-wrap text-sm sm:text-base items-center justify-center">
-                            <div className="flex items-center">
-                                Trophies{' '}
-                                <p className="bg-purple-700 text-zinc-50 outline outline-2 outline-zinc-400 dark:outline-zinc-100 m-2 p-1 rounded-md">
-                                    {player.trophies}
-                                </p>
-                            </div>{' '}
-                            <div className="flex items-center justify-center flex-wrap">
-                                Builder Base Trophies{' '}
-                                <p className="bg-green-700 text-zinc-50 outline outline-2 outline-zinc-400 dark:outline-zinc-100 m-2 p-1 rounded-md">
-                                    {player.builderBaseTrophies}
-                                </p>
-                            </div>
-                        </div>
-                        <p className="flex flex-wrap gap-2 text-sm sm:text-base items-center justify-center">
-                            {player.clanName}
+                        </h2>
+                        <dl className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+                            {stats.map(({ label, value, accent }) => (
+                                <div
+                                    key={label}
+                                    className="flex flex-col justify-between gap-1 bg-white/80 dark:bg-zinc-700 shadow-sm rounded-xl px-3 py-2"
+                                >
+                                    <dt className="flex items-center gap-2 text-xs text-zinc-500 dark:text-zinc-300">
+                                        <span
+                                            className={`${accent} size-2 shrink-0 rounded-full`}
+                                            aria-hidden="true"
+                                        />
+                                        {label}
+                                    </dt>
+                                    <dd className="text-2xl">{value}</dd>
+                                </div>
+                            ))}
+                        </dl>
+                        <div className="flex items-center gap-3 self-center bg-white/80 dark:bg-zinc-700 shadow-sm rounded-xl px-4 py-2">
                             <Image
                                 src={player.clanBadgeUrl}
                                 alt={player.clanName}
@@ -73,8 +84,15 @@ const Main = () => {
                                 width={48}
                                 loading="lazy"
                             />
-                            {player.clanTag}
-                        </p>
+                            <div className="flex flex-col">
+                                <p className="text-sm sm:text-base">
+                                    {player.clanName}
+                                </p>
+                                <p className="text-xs text-zinc-500 dark:text-zinc-300">
+                                    {player.clanTag}
+                                </p>
+                            </div>
+                        </div>
                     </div>
                     <Image
                         src={barbarian}
