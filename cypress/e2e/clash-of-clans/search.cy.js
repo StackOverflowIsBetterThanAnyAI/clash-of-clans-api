@@ -51,7 +51,7 @@ context('Search', () => {
 
         cy.get('[data-testid="main-player"]').should(
             'have.text',
-            '0 SKLZ,JUS LUCKPlayer Level 100 Townhall Level 15Trophies 5000 Builder Base Trophies 3000The Best Clan#CLAN123'
+            '0 SKLZ,JUS LUCKPlayer Level100Townhall Level15Trophies5000Builder Base Trophies3000The Best Clan#CLAN123'
         )
     })
 
