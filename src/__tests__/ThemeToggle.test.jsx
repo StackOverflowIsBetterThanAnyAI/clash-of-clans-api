@@ -6,7 +6,7 @@ describe('Page', () => {
     it('displays light mode per default', () => {
         render(<Page />)
         const theme = screen.getByTestId('theme-toggle')
-        expect(theme).toHaveTextContent('☀️ Light')
+        expect(theme).toHaveTextContent('Theme: ☀️Light')
     })
 
     it('changes theme on click', () => {
@@ -14,9 +14,9 @@ describe('Page', () => {
         const theme = screen.getByTestId('theme-toggle')
 
         fireEvent.click(theme)
-        expect(theme).toHaveTextContent('🌙 Dark')
+        expect(theme).toHaveTextContent('Theme: 🌙Dark')
 
         fireEvent.click(theme)
-        expect(theme).toHaveTextContent('☀️ Light')
+        expect(theme).toHaveTextContent('Theme: ☀️Light')
     })
 })

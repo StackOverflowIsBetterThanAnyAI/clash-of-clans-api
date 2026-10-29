@@ -12,11 +12,12 @@ const ThemeToggle = () => {
     return (
         <button
             onClick={() => setToggleTheme([theme, setTheme])}
-            className="flex items-center p-2 h-fit text-xs sm:text-sm bg-zinc-100 dark:bg-zinc-800 shadow-md rounded-md"
-            title={`Switch to ${theme === 'dark' ? 'Light' : 'Dark'} mode.`}
+            className="flex items-center gap-1 p-2 h-fit text-xs sm:text-sm bg-zinc-100 dark:bg-zinc-800 shadow-md rounded-md"
             data-testid="theme-toggle"
         >
-            {theme === 'dark' ? '🌙 Dark' : '☀️ Light'}
+            <span className="sr-only">Theme: </span>
+            <span aria-hidden="true">{theme === 'dark' ? '🌙' : '☀️'}</span>
+            {theme === 'dark' ? 'Dark' : 'Light'}
         </button>
     )
 }

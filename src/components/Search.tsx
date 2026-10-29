@@ -120,6 +120,7 @@ const Search = () => {
                 <div
                     className="flex text-red-700 underline underline-offset-2 decoration-red-700 dark:text-zinc-100 dark:decoration-zinc-100 justify-center pt-4"
                     data-testid="search-error"
+                    role="alert"
                 >
                     {error}
                 </div>

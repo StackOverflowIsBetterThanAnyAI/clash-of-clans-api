@@ -17,6 +17,7 @@ describe('Page', () => {
         expect(error).toHaveTextContent(
             'Unable to fetch the player with ID #ABCD1234!'
         )
+        expect(error).toHaveAttribute('role', 'alert')
     })
 
     it('disables the button correctly', () => {

@@ -12,6 +12,6 @@ context('Navigation', () => {
             'have.text',
             'Clash Stats'
         )
-        cy.get("[data-testid='theme-toggle']").should('have.text', '☀️ Light')
+        cy.get("[data-testid='theme-toggle']").should('have.text', 'Theme: ☀️Light')
     })
 })
