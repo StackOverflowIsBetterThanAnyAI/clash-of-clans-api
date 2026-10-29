@@ -2,8 +2,6 @@
 
 Look up any Clash of Clans player by their player tag and see their level, Town Hall, trophies and clan at a glance.
 
-**Live:** [clash-of-clans-api-alpha.vercel.app](https://clash-of-clans-api-alpha.vercel.app)
-
 ![Clash Stats Preview](preview.png)
 
 ## Features
