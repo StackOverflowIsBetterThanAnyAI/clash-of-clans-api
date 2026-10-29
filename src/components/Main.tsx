@@ -65,7 +65,7 @@ const Main = () => {
                                     key={label}
                                     className="flex flex-col justify-between gap-1 bg-white/80 dark:bg-zinc-700 shadow-sm rounded-xl px-3 py-2"
                                 >
-                                    <dt className="flex items-center gap-2 text-xs text-zinc-500 dark:text-zinc-300">
+                                    <dt className="flex items-center gap-2 text-xs text-zinc-600 dark:text-zinc-300">
                                         <span
                                             className={`${accent} size-2 shrink-0 rounded-full`}
                                             aria-hidden="true"
@@ -79,7 +79,7 @@ const Main = () => {
                         <div className="flex items-center gap-3 self-center bg-white/80 dark:bg-zinc-700 shadow-sm rounded-xl px-4 py-2">
                             <Image
                                 src={player.clanBadgeUrl}
-                                alt={player.clanName}
+                                alt=""
                                 height={48}
                                 width={48}
                                 loading="lazy"
@@ -88,7 +88,7 @@ const Main = () => {
                                 <p className="text-sm sm:text-base">
                                     {player.clanName}
                                 </p>
-                                <p className="text-xs text-zinc-500 dark:text-zinc-300">
+                                <p className="text-xs text-zinc-600 dark:text-zinc-300">
                                     {player.clanTag}
                                 </p>
                             </div>
