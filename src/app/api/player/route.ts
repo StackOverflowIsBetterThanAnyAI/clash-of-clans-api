@@ -13,8 +13,11 @@ export async function GET(req: Request) {
     }
 
     const apiKey = process.env.COC_API_KEY
+    // Serverless hosts have no static IP, so a proxy with a fixed IP can be used
+    const baseUrl =
+        process.env.COC_API_BASE_URL || 'https://api.clashofclans.com/v1'
     const response = await fetch(
-        `https://api.clashofclans.com/v1/players/%23${id}`,
+        `${baseUrl}/players/%23${id}`,
         {
             method: 'GET',
             headers: {

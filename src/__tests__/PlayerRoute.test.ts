@@ -8,6 +8,7 @@ describe('GET /api/player', () => {
 
     beforeEach(() => {
         global.fetch = fetchMock
+        delete process.env.COC_API_BASE_URL
     })
 
     const request = (id: string) =>
@@ -48,6 +49,20 @@ describe('GET /api/player', () => {
         expect(await response.json()).toEqual({ name: 'Player' })
         expect(fetchMock).toHaveBeenCalledWith(
             'https://api.clashofclans.com/v1/players/%23RGC9YYGQ',
+            expect.any(Object)
+        )
+    })
+
+    it('uses COC_API_BASE_URL when set', async () => {
+        process.env.COC_API_BASE_URL = 'https://cocproxy.royaleapi.dev/v1'
+        fetchMock.mockResolvedValue(
+            new Response(JSON.stringify({ name: 'Player' }), { status: 200 })
+        )
+
+        await GET(request('RGC9YYGQ'))
+
+        expect(fetchMock).toHaveBeenCalledWith(
+            'https://cocproxy.royaleapi.dev/v1/players/%23RGC9YYGQ',
             expect.any(Object)
         )
     })
