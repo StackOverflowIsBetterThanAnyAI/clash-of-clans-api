@@ -1,8 +1,16 @@
 import { NextResponse } from 'next/server'
+import { isValidPlayerTag } from '@/utils/isValidPlayerTag'
 
 export async function GET(req: Request) {
     const { searchParams } = new URL(req.url)
-    const id = searchParams.get('id')
+    const id = searchParams.get('id')?.toUpperCase() ?? ''
+
+    if (!isValidPlayerTag(id)) {
+        return NextResponse.json(
+            { error: 'Invalid player ID' },
+            { status: 400 }
+        )
+    }
 
     const apiKey = process.env.COC_API_KEY
     const response = await fetch(
