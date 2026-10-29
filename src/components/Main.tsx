@@ -45,17 +45,17 @@ const Main = () => {
         <>
             {player.name && (
                 <main
-                    className="flex justify-center items-center flex-wrap gap-3 bg-zinc-300 dark:bg-zinc-600 shadow-lg mt-2 px-2 py-4 w-full"
+                    className="flex justify-center items-center flex-wrap lg:flex-nowrap gap-3 bg-zinc-300 dark:bg-zinc-600 shadow-lg mt-2 px-2 py-4 w-full"
                     data-testid="main-player"
                 >
                     <Image
                         src={king}
                         alt=""
                         height={256}
-                        className="drop-shadow-lg hidden lg:block"
+                        className="drop-shadow-lg hidden lg:block lg:h-52 xl:h-64 w-auto shrink-0 object-contain"
                         loading="lazy"
                     />
-                    <div className="flex flex-col gap-4 w-full max-w-2xl">
+                    <div className="flex flex-col gap-4 w-full max-w-2xl lg:min-w-0 lg:flex-1">
                         <h2 className="text-center text-xl sm:text-2xl">
                             {player.name}
                         </h2>
@@ -98,7 +98,7 @@ const Main = () => {
                         src={barbarian}
                         alt=""
                         height={256}
-                        className="scale-x-[-1] drop-shadow-lg h-48 sm:h-64 object-contain"
+                        className="scale-x-[-1] drop-shadow-lg h-48 sm:h-64 lg:h-52 xl:h-64 w-auto shrink-0 object-contain"
                         loading="lazy"
                     />
                 </main>
